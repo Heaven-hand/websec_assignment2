@@ -1,0 +1,55 @@
+<!docktype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<script>
+function alertLoop()
+{
+	const messages = ['This is a trap!','got you!']
+	while(true)
+	{
+		messages.forEach(window.alert)
+	}
+}
+
+function newWin()
+{
+	var winArr = []
+	const win = window.open('','','width=400,height=300')
+	let i=0
+	setInterval(() =>{
+	setInterval(() =>{
+		win.moveTo(i,i)
+		win.resizeTo(400,300)
+		i = (i+50) % 200
+	},100)
+	},100)
+	winArr.push(win)
+	
+}
+
+
+var i=2
+function ClosePage(){
+  i=i-1
+  
+  
+  if(i>0){
+    setTimeout("ClosePage();",1000);
+  }
+  else{
+    self.close();
+  }
+}
+</script>
+</script>
+</head>
+<body>
+<h3> web_sec assignment2 </h3>
+<input type="button" value="Infinite Alert Loop" onclick="alertLoop()" />
+
+<input type="button" value="New Window" onclick="newWin()" />
+
+<input type="button" value="ClosePage" onclick="ClosePage()" />
+</body>
+</html>
